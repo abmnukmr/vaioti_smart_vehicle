@@ -31,13 +31,39 @@
   <div style="text-align: center">
     <button ion-button color="light" block outline style="border-radius: 0%;border-color:#3d9d51;width: 100%; box-shadow: 0px 0px 0px #3d9d51"><p style="color:#3d9d51;font-weight: 300 ">Bus Route</p></button>
   </div>
-  <div style="background-color: #825792;height: 90%;width: 1px;position:absolute;left: 10%">
+  <div style="background-color: #b6bfb4;height: 90%;width: 1px;position:absolute;left: 10%">
 <ion-list  *ngFor="let stop of stoppage;let i=index">
     <ion-row>
-      <div [ngClass]="{blink: i==stoppage.length-1}" style="position: absolute;left: -12px">
-        <button ion-fab style="background-color: #825792">
+      <div  style="position: absolute;left: -12px">
+        <div style="  width: 25px;
+    height: 25px;
+    background: white;
+    border: 1px solid red;
+    border-radius: 50%;
+    "  *ngIf="i==stoppage.length-3">
+          <button ion-fab class="spinner"  >
+
+          </button>
+        </div>
+
+
+
+        <button ion-fab *ngIf="i<=stoppage.length-4"  style="background-color: #55b54a">
+          <ion-icon name="checkmark" style="font-size: 14px;font-weight:bold;"></ion-icon>
         </button>
-      </div>
+        <button ion-fab *ngIf="i==stoppage.length-2"  style="background-color: #5a43e1">
+          <ion-icon name="arrow-dropdown"></ion-icon>
+        </button>
+        <button ion-fab *ngIf="i==stoppage.length-1"  style="background-color: #b53f67">
+          <ion-icon name="flag" style="font-size: 20px"></ion-icon>
+        </button>
+
+
+
+
+         </div>
+
+
       <p style="position: relative;left: 30px;top:-11px;font-size: medium;font-weight: 300">{{stop}}</p>
     </ion-row>
 </ion-list>
